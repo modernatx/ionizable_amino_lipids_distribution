@@ -1,0 +1,7 @@
+### To parametrize the new lipid using GAFF2 please see the tleap.in file in parametrization folder
+### To build a bilayer containing the specific ionizable lipid is: ~/VMD_binary/bin/vmd -dispdev text -e MM.tcl
+### To run equilibration run following command:
+## Run namd2 config_file_nam > log_file_name
+## To run production do the followinf command:
+### Run namd3 config_file_name > log_file_name
+## Check out the analysis directory for all the codes used to generate the figures.

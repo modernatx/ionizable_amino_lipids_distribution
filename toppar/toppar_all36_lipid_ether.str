@@ -1,0 +1,96 @@
+* Parameters
+*
+
+BONDS
+!
+!V(bond) = Kb(b - b0)**2
+!
+!Kb: kcal/mole/A**2
+!b0: A
+!
+!atom type Kb          b0
+!
+
+CTL2  OG301   340.0       1.43    ! phosphate
+CTL1  OG301   340.0       1.43    ! phosphate
+
+ANGLES
+!
+!V(angle) = Ktheta(Theta - Theta0)**2
+!
+!V(Urey-Bradley) = Kub(S - S0)**2
+!
+!Ktheta: kcal/mole/rad**2
+!Theta0: degrees
+!Kub: kcal/mole/A**2 (Urey-Bradley)
+!S0: A
+!
+!atom types     Ktheta    Theta0   Kub     S0
+!
+
+OG301 CTL1 CTL2   75.700    110.10   ! acetic acid
+OG301 CTL2 CTL1   75.700    110.10   ! acetic acid
+OG301 CTL2 CTL2   75.700    110.10   ! acetic acid
+
+HAL1 CTL1 OG301    60.0      109.5    ! phosphate
+HAL2 CTL2 OG301    60.0      109.5    ! phosphate
+
+CTL1 OG301 CTL2   65.00     108.00   !
+CTL2 OG301 CTL2   95.00     109.70   !
+
+DIHEDRALS
+!
+!V(dihedral) = Kchi(1 + cos(n(chi) - delta))
+!
+!Kchi: kcal/mole
+!n: multiplicity
+!delta: degrees
+!
+!atom types             Kchi    n   delta
+!
+
+! New ether dihedrals OCCO and COCC from A. L. 07/18 JPCB, QM with diethoxyethane. 
+! Paper has a typo for OCCO n=1 k=0.4; should be k=0.04.
+OG301  CTL1   CTL2   OG301      0.04    1    180.0 ! A.L. 07/18  diethoxyethane
+OG301  CTL1   CTL2   OG301      1.20    2      0.0 ! A.L. 07/18  diethoxyethane
+CTL2   OG301  CTL2   CTL2       0.31    2      0.0 ! A.L. 07/18  diethoxyethane
+CTL2   OG301  CTL2   CTL2       0.42    3      0.0 ! A.L. 07/18  diethoxyethane
+CTL2   OG301  CTL2   CTL2       0.16    4      0.0 ! A.L. 07/18  diethoxyethane
+CTL2   OG301  CTL2   CTL2       0.26    5      0.0 ! A.L. 07/18  diethoxyethane
+CTL2   CTL2   OG301  CTL1       0.31    2      0.0 ! A.L. 07/18  diethoxyethane 
+CTL2   CTL2   OG301  CTL1       0.42    3      0.0 ! A.L. 07/18  diethoxyethane
+CTL2   CTL2   OG301  CTL1       0.16    4      0.0 ! A.L. 07/18  diethoxyethane
+CTL2   CTL2   OG301  CTL1       0.26    5      0.0 ! A.L. 07/18  diethoxyethane
+CTL2   CTL1   OG301  CTL2       0.31    2      0.0 ! A.L. 07/18  diethoxyethane
+CTL2   CTL1   OG301  CTL2       0.42    3      0.0 ! A.L. 07/18  diethoxyethane
+CTL2   CTL1   OG301  CTL2       0.16    4      0.0 ! A.L. 07/18  diethoxyethane
+CTL2   CTL1   OG301  CTL2       0.26    5      0.0 ! A.L. 07/18  diethoxyethane
+CTL1   CTL2   OG301  CTL2       0.31    2      0.0 ! A.L. 07/18  diethoxyethane
+CTL1   CTL2   OG301  CTL2       0.42    3      0.0 ! A.L. 07/18  diethoxyethane   
+CTL1   CTL2   OG301  CTL2       0.16    4      0.0 ! A.L. 07/18  diethoxyethane
+CTL1   CTL2   OG301  CTL2       0.26    5      0.0 ! A.L. 07/18  diethoxyethane
+
+! Parameters below have OG301 in place of OSL, but are otherwise the same as in the master lipid parameter file.
+OG301  PL     OG301  CTL1       1.20    1    180.0 ! phosphate, new NA, 4/98, adm jr., PIP
+OG301  PL     OG301  CTL1       0.10    2    180.0 ! phosphate, new NA, 4/98, adm jr., PIP
+OG301  PL     OG301  CTL1       0.10    3    180.0 ! phosphate, new NA, 4/98, adm jr., PIP
+O2L    PL     OG301  CTL2       0.10    3      0.0 ! phosphate, new NA, 4/98, adm jr.
+O2L    PL     OG301  CTL1       0.10    3      0.0 ! phosphate, new NA, 4/98, adm jr., PIP
+OSLP   CTL2   CTL1   OG301      0.000   4      0.0 ! Fit to QM, theta2, 07/08 jbk
+OSLP   CTL2   CTL1   OG301      0.607   3    180.0 ! Fit to QM, theta2, 07/08 jbk
+OSLP   CTL2   CTL1   OG301      0.254   2     60.0 ! Fit to QM, theta2, 07/08 jbk
+OSLP   CTL2   CTL1   OG301      2.016   1    180.0 ! Fit to QM, theta2, 07/08 jbk
+CTL2   CTL1   CTL2   OG301      0.000   3      0.0 ! glycerol, theta3
+CTL2   CTL2   CTL2   OG301      0.000   3      0.0 ! glycerol, theta3
+!alkane CCCC dihedrals based on pentane, heptane and hexane vdz/vqz/ccsd(t) QM data  
+HAL2   CTL2   OG301 CTL2        0.2840  3      0.0 ! diethylether, alex
+HAL2   CTL2   OG301 CTL1        0.2840  3      0.0 ! 
+HAL1   CTL1   OG301 CTL2        0.2840  3      0.0 ! 
+
+HBOND CUTHB 0.5  ! If you want to do hbond analysis (only), then use
+                 ! READ PARAM APPEND CARD
+                 ! to append hbond parameters from the file: par_hbond.inp
+
+END
+
+return

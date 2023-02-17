@@ -1,0 +1,8 @@
+source oldff/leaprc.ff99SB
+source leaprc.gaff
+RP = loadmol2 SM86-R-1.mol2 
+check RP
+loadamberparams SM86-R-1.frcmod
+saveoff RP RP.lib 
+saveamberparm RP SM86-R-1.prmtop SM86-R-1.inpcrd
+quit 
